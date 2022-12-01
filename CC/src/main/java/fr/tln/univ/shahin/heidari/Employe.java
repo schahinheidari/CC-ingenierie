@@ -1,6 +1,9 @@
 package fr.tln.univ.shahin.heidari;
 
-public class Employe extends Personne{
+import java.util.Comparator;
+import java.util.List;
+
+public class Employe extends Personne implements ItemDeFacture{
     private final int id ;
     private final String nom;
     private int salarieHoraire;
@@ -26,7 +29,7 @@ public class Employe extends Personne{
         if (salarieHoraire > 0){
             this.salarieHoraire = salarieHoraire;
         }else {
-            System.out.println("Il y a  l'Exception ForbiddenSalaryException");
+            System.out.println("Il y a l'Exception ForbiddenSalaryException");
         }
     }
     public int getSalarieHoraire(){
@@ -39,6 +42,22 @@ public class Employe extends Personne{
                 "salarieHoraire=" + this.salarieHoraire +
                 '}';
     }
+    @Override
+    public int getTarif(int nbHeures) {
+        return (int)(this.salarieHoraire * 1.10);
+    }
 
+    static Comparator<Employe> compareParId = new Comparator<Employe>() {
+        @Override
+        public int compare(Employe o1, Employe o2) {
+            return o1.getId() - (o2.getId());
+        }
+    };
 
+    static Comparator<Employe> compareParNom = new Comparator<Employe>() {
+        @Override
+        public int compare(Employe o1, Employe o2) {
+            return o1.getSalarieHoraire() - (o2.getSalarieHoraire());
+        }
+    };
 }

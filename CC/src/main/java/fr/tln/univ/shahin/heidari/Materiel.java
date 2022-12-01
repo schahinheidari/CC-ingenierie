@@ -3,7 +3,7 @@ package fr.tln.univ.shahin.heidari;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
-public class Materiel{
+public class Materiel implements ItemDeFacture{
 
     private int identy;
     private int coutHoraire;
@@ -26,6 +26,10 @@ public class Materiel{
 
     public int getIdenty() {
         return identy;
+    }
+    @Override
+    public int getTarif(int nbHeures) {
+        return (int) (this.coutHoraire * 1.20 + 15);
     }
 
 }
