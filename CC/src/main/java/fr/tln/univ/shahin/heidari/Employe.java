@@ -1,6 +1,6 @@
 package fr.tln.univ.shahin.heidari;
 
-public class Employe {
+public class Employe extends Personne{
     private final int id ;
     private final String nom;
     private int salarieHoraire;

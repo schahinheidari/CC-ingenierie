@@ -7,8 +7,12 @@ public class Test1 {
         personne[1]= new Ingenieur( "Shahin", 30000, 0, 1000);
         System.out.println(personne[0].getId());
         System.out.println(personne[1].getId());
-        Employe Shahin = new Employe("shah", 12, 1200);
-        Ingenieur Amir= new Ingenieur("Amir", 20, 10,20);
+        var Shahin = new Employe("shah", 12, 1200);
+        var Amir= new Ingenieur("Amir", 20, 10,20);
+
+        Materiel[] materiels = new Materiel[3];
+
+
 
     }
 }
