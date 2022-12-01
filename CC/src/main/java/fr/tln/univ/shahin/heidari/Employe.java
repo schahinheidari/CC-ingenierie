@@ -4,8 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Employe extends Personne implements ItemDeFacture{
-    private final int id ;
-    private final String nom;
+    private int id ;
+    private String nom;
     private int salarieHoraire;
 
     public Employe(String nom, int id, int salarieHoraire) {
@@ -45,6 +45,10 @@ public class Employe extends Personne implements ItemDeFacture{
     @Override
     public int getTarif(int nbHeures) {
         return (int)(this.salarieHoraire * 1.10);
+    }
+
+    int getTarifReduit(int pourcentage, int nbHeures) {
+        return (int) getTarif(nbHeures)-getTarif(nbHeures)*pourcentage/100;
     }
 
     static Comparator<Employe> compareParId = new Comparator<Employe>() {
