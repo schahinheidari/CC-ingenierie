@@ -1,5 +1,8 @@
 package fr.tln.univ.shahin.heidari;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Test1 {
     public static void main(String[] args) {
         Employe[] personne = new Employe[2];
@@ -13,6 +16,22 @@ public class Test1 {
         Materiel[] materiels = new Materiel[3];
 
 
+        var box2 = new Test2();
+        box2.ajouter(Shahin);
+        Employe emp1 = box2.getEmploye(1);
 
+    }
+
+}
+class Test2{
+    Map<Integer, Employe> personne;
+    public Test2(){
+        personne = new HashMap<>();
+    }
+    public void ajouter(Employe employe){
+        personne.put(employe.getId(), employe);
+    }
+    public Employe getEmploye(Integer intId){
+        return personne.get(intId);
     }
 }
